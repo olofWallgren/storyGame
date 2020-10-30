@@ -1,138 +1,162 @@
 //currentPage lägger man in som en parrameter till storyPages,värdet är 0 och då kommer listobjekt 0 visas.
-
 // array med objekt
 let scenes = [
     // listobjekt 0
     {
-        question: "Du vaknar i skogen utan minne, Längre bort ser du en smal stig och till höger om stigen finns en liten grottöppning.",
-        answers: {
-            first: { answer: "Följer du stigen?", next: 2 },
-            second: { answer: "Eller går du ner i grottan?", next: 1 } 
-        }
+        question: "Det är dags att dra då det härjar en zombie-pandemi",
+        answers: [
+            { answer: "Dra!", next: 1 },
+            
+        ]
     },
     //listobjekt 1 grottan
     {
-        question: "Inne i grottan börjar det bli mörkt men som tur är finns på väggen mjligheten att tända en fackla. ",
-        answers: {
-            first: { answer: "Tänder du facklan?", next: 3 },
-            second: { answer: "Eller går du i mörkret?", next: 4 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "Innan du drar måste du ta med dig dom viktigaste prylarna. I hallen ligger det en kickbike, en matkasse och en cyckel. Vad väljer du? ",
+        answers: [
+           
+            { answer: "Cyckel?", next: 2 }, 
+            { answer: "Kickbike", next: 13 } 
+        ]
     },
-    //listobjekt 2 stigen
+    //listobjekt 2 cyckel
     {
-        question: "På stigen möter du en skepnad som ger dig två val. ",
-        answers: {
-            first: { answer: "Stå till tjänst i all evighet", next: 5 },
-            second: { answer: "bli ett med skepnaden?", next: 6 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "Du hoppar på cyckeln och börjar cyckla mot vart? Mot vattnet eller mot vildmarken?. ",
+        answers: [
+            { answer: "Mot vattnet?", next: 3 },
+            { answer: "Vildmarken?", next: 14 } 
+        ]
     },
-    //listobjekt 3 grottan första val
+    //listobjekt 3 vattnet
     {
-        question: "när du tänder facklan ser du en kista liggandes på marken. ",
-        answers: {
-            first: { answer: "öppna kistan?", next: 11 },
-            second: { answer: "strunta i kistan och fortsätt?", next: 4 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "När du kommer fram till vattnet börjar zombies flocka sig runt dig. Du ser en båt längre bort och kan välja mellan att försöka springa dit eller försöka skrämma ihjäl zomierna! ",
+        answers: [
+            { answer: "Skräm!", next: 4 },
+            { answer: "Spring!", next: 5 } 
+        ]
     },
-    // listobjekt 4 grottan andra val
+    // listobjekt 4 fight
     {
-        question: "du trampa tyvärr ned i ett hål och dog. Vill du fortsätta att vara död eller kanske återfödas till något kul ",
-        answers: {
-            first: { answer: "jag vill vara död?", next: 1 },
-            second: { answer: "jag vill återfödas?", next: 8 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "Zombierna blev asrädda och riktigt irriterade så du blev tyvärr uppäten. Vill du börja om? ",
+        answers: [
+            { answer: "Börja om", next: 0 },
+            { answer: "Avsluta", next: 15 } 
+        ]
     },
-    //listobjekt 5 stigen första val
+    //listobjekt 5 spring
     {
-        question: "du står nu till tjänst i all evighet villket innebär att bära skepnadens väska i all evighet. ",
-        answers: {
-            first: { answer: "lev med att bära din egen väska i all evighet?", next: 9 },
-            second: { answer: "kasta väskan på marken och stunta i din tjänst?", next: 10 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "Du han fram till båten med livet i behåll. Du startar båten och drar ut till närmsta ö. På ön finns fler människor med olika intressen som klarat sig undan, vill du plundra och ta allt dom har eller försöka bli kompis med dom. ",
+        answers: [
+            { answer: "Plundra", next: 6 },
+            { answer: "Kompis", next: 8 } 
+        ]
     },
-    //listobjekt 6 stigen andra val
+    //listobjekt 6 Musslor
     {
-        question: "du är nu ett med skepnaden och vaknar upp i en grotta. I grottan är det mörkt men som tur var finns en fackla på väggen som går att tända ",
-        answers: {
-            first: { answer: "tänd facklan?", next: 3 },
-            second: { answer: "Fortsätt utan att tända?", next: 4 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "Plundringen gick bra och du fick med dig en konservburk med musslor",
+        answers: [
+            { answer: "Ät musslorna", next: 7 },
+        ]
     },
+            
     //listobjekt 7 grottan tredje val
     {
-        question: "du är nu död och spelet är slut. ",
-        answers: {
-            first: { answer: "", next: 3 },
-            second: { answer: "", next: 4 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "Musslorna var tyvärr gammla och du avled i svåra magsmärtor.",
+        answers: [
+            { answer: "Börja om", next: 0 },
+            { answer: "Avsluta", next: 15 } 
+        ]
     },
-    //listobjekt 8 grottan tredje val
+    // listobjekt 8 alliance
     {
-        question: "du är nu återfödd till en skepnad och vaknar upp på en stig. På stigen möter du dig själv och ger dig själv två alternativ ",
-        answers: {
-            first: { answer: "bli ett med dig själv?", next: 6 },
-            second: { answer: "eller bär din egen väska i all evighet?", next: 5 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "Människorna på ön hade tyvärr utvecklat en svår form av fotbollsintresse så du blev så uttråkad att du tillslut bara stod inför ett enda alternativ",
+        answers: [
+            { answer: "Ta ditt eget liv", next: 9 },
+        ]
     },
-    // listobjekt 9 
+    // listobjekt 9     
+    
     {
-        question: "Grattis du har valt att bär dina egena grejjer! ",
-        answers: {
-            first: { answer: "börja om?", next: 0 },
-            second: { answer: "avsluta?", next: 7 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "Du misslyckades med att ta ditt liv och råka istället förstöra hela båten. Du blev nu tvungen o simma tillbaka till fastlandet, men hur vill du simma? ",
+        answers: [
+            { answer: "Grodsimm?", next: 10 },
+            { answer: "Fjärilssimm?", next: 11 } 
+        ]
     },
     // listobjekt 10
     {
-        question: "Du kasta din egen väska och där med din själ,vilket innebär att du faller isär och dör. ",
-        answers: {
-            first: { answer: "acceptera din död?", next: 7 },
-            second: { answer: "börja om spelet?", next: 0 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "Du hade tyvärr glömmt hur man simma grodsimm och drunknade. ",
+        answers: [
+            { answer: "Avsluta spelet?", next: 15 },
+            { answer: "Börja om spelet?", next: 0 } 
+        ]
     },
     // listobjekt 11
     {
-        question: "I kistan låg tyvärr en giftorm som bet dig i handen och det blev tyvärr din död. ",
-        answers: {
-            first: { answer: "vill du återfödas?", next: 8 },
-            second: { answer: "börja om spelet?", next: 0 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "Fjärlisimmet gick väldigt bra och du kom tillslut fram till fastlandet där alla zombies förväntansfulla stod o vänta på dig. Dom ville också lära sig Fjärilsimm. ",
+        answers: [
+            { answer: "Lär ut Fjärilsimm", next: 12 },
+            
+        ]
     },
+    // listobjekt 12
     {
-        question: "Du struntar i potentionell rikedom och forsätter in i grottan. Men är du säker på att du inte vill öppna kistan? ",
-        answers: {
-            first: { answer: "öppna kistan?", next: 11 },
-            second: { answer: "fortsätt?", next: 0 } // ändra siffrer för att välja vilken scene som skall komma efter
-        }
+        question: "Zomierna tyckte det va sjukt svårt med fjärilsimm så alla druknade och du har råkat rädda världen",
+        answers: [
+            { answer: "Börja om spelet?", next: 0 },
+            { answer: "Avsluta", next: 15 },
+            
+        ]
+    },
+    // listobjekt 13
+    {
+        question: "Styret va lite snett på kickbiken så du fick ta cyckeln istället",
+        answers: [
+            { answer: "Cyckla", next: 2 },
+            
+        ]
+    },
+    // listobjekt 14
+    {
+        question: "Väl framme i vildmarken så märker du att det är riktigt mycket mygg. Myggen är skitjobbiga och stora som måsar så du bestämmer dig för att cyckla till vattnet istället.  ",
+        answers: [
+            { answer: "Mot vattnet", next:3 },
+            
+        ]
+    },
+    // listobjekt 15
+    {
+        question: "Spelet är slut!",
+        answers: [
+            { answer: "Börja om", next: 0 },
+           
+        ]
     }
 ];
-let currentScene = scenes[0] // för att när vi startar appen så visas scene 1
-// testkörning
-window.onload = uppdateCurrentScene; // när sidan laddas så visas current scene
+/** currentScen är den aktiva scenen */
+let currentScene = scenes[0] 
 
-// function presentScene() {
-//     const answer = promt(scenes[currentScene].description);
-//     handleUserChoice(answer)
-// }
+/** Laddar sidan och visar första scen */
+window.onload = uppdateCurrentSceneUI; 
 
-function handleUserChoice(answer) {
-    console.log(answer)
-    let nextScene = answer == 0 ? currentScene.answers.first.next:currentScene.answers.second.next // vänster om : är true höger om : är false
-
-
-     
+/** Uppdaterar currentScene */
+function handleUserChoice(nextScene) {
+   
     console.log(nextScene)
     currentScene = scenes[nextScene] //
-    uppdateCurrentScene()
-   
+    uppdateCurrentSceneUI()
 }
-// if (answer === scenes[currentScene].choice[0]) {
-//     currentSchene = schenes[currentScene].nextScene[1]
-//     presentScene()
-// }
-function uppdateCurrentScene(){
-   document.getElementById("knapp1").innerText = currentScene.answers.first.answer
-   document.getElementById("knapp2").innerText = currentScene.answers.second.answer
-   document.getElementById("description").innerText = currentScene.question
+/** Uppdaterar gränssnittet */
+function uppdateCurrentSceneUI() {
+    document.getElementById("question").innerText = currentScene.question
+    let buttonBox = document.getElementById("buttonBox")
+    buttonBox.querySelectorAll('*').forEach(n => n.remove());
+    currentScene.answers.forEach(a => createButton(buttonBox, a.answer, () => handleUserChoice(a.next)))
 }
-  
+/** Skapar upp en knapp */
+function createButton(parent, answer, func) {
+    var button = document.createElement("input");
+    button.type = "button";
+    button.value = answer;
+    button.onclick = func;
+    parent.appendChild(button);
+}
