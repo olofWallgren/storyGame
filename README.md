@@ -1,2 +1,2 @@
 # storyGame
-[test] (https://olofwallgren.github.io/storyGame/)
+[test](https://olofwallgren.github.io/storyGame/)
