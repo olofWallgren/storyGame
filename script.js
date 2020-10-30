@@ -1,5 +1,4 @@
-//currentPage lägger man in som en parrameter till storyPages,värdet är 0 och då kommer listobjekt 0 visas.
-// array med objekt
+
 let scenes = [
     // listobjekt 0
     {
